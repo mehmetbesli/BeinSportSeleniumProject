@@ -26,7 +26,7 @@ public class BeinSportProjectTestCase {
     }
 
     @Test
-    public void gotoAmazonWebPageTest() throws Exception {
+    public void gotoBeinSportWebPageTest() throws Exception {
         project.navigateToWebsite();
         Assert.assertTrue("You are not in amazon web site", project.getDriver().getCurrentUrl().contains("https://connect-th.beinsports.com/en"));
     }

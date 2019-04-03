@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  */
 public class BeinSportProject {
 
-    private Logger logger = Logger.getLogger("SeleniumMovbenProject");
+    private Logger logger = Logger.getLogger("BeinSportProject");
 
     private WebDriver driver;
     private WebDriverWait driverWait;
