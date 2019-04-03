@@ -13,8 +13,8 @@
 10.Expect for a error text and finish test with success
 
 ## which technologies were used
-1. Java and eclipse
-2. Selenium Automation tool 
+1. Java and Intellij
+2. Selenium Automation Tool 
 3. Junit and Log4j
 
 ## Other Features
