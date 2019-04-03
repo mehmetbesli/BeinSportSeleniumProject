@@ -74,7 +74,6 @@ public class BeinSportProjectTestCase {
         project.goToOneMonth();
         project.comparePrice();
         project.MonthlyPasswithOneWeek();
-        //Assert.assertTrue("You are in Monthly Pass with One Week page", project.getLastTakenPrice()!=null);
         Assert.assertTrue("You are in Monthly Pass with One Week page", project.getLastTakenPrice().contains("199"));
 
     }
@@ -118,7 +117,6 @@ public class BeinSportProjectTestCase {
         project.makePaymentWıthCard();
         String textWritten = project.getDriver().findElement(By.xpath("//p[@class='payment-cards-description']")).getText();
         Assert.assertTrue("We are in Make Payment With Card Pages", textWritten.contains("Pay with Credit/Debit Card"));
-        //Assert.assertTrue("We are in Make Payment With Car Pages", textWritten.equalsIgnoreCase("Pay with Credit/Debit Card"));
     }
 
     @Test
@@ -133,7 +131,6 @@ public class BeinSportProjectTestCase {
         project.IgnoreEmailVerification();
         project.makePaymentWıthCard();
         project.expectTotalChargeContol();
-        //Assert.assertTrue("1.00 total charge exist", project.errorMessage.contains("1.00"));
         Assert.assertTrue("1.00 total charge exist", project.getDriver().getCurrentUrl().contains("ncol/prod"));
     }
 
@@ -150,7 +147,6 @@ public class BeinSportProjectTestCase {
         project.makePaymentWıthCard();
         project.expectTotalChargeContol();
         project.writeCardDetails();
-        //Assert.assertTrue("1.00 total charge exist", project.getDriver().getCurrentUrl().contains("ncol/prod"));
         Assert.assertTrue("You are in payment page", project.getDriver().getCurrentUrl().contains("ncol/prod"));
     }
 

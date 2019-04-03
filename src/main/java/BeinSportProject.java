@@ -57,7 +57,7 @@ public class BeinSportProject {
 
     public void expectErrorTestAndFinish() throws Exception {
         errorMessage = driver.findElement(By.xpath("//td[@class='ncoltxtc']")).getText();
-        if (errorMessage!=null && errorMessage.length()>0){
+        if (errorMessage != null && errorMessage.length() > 0) {
             logger.info("Got error message");
         } else {
             logger.info("Did not error message");
@@ -69,25 +69,23 @@ public class BeinSportProject {
     public void writeCardDetails() {
         driver.findElement(By.id("Ecom_Payment_Card_Name")).sendKeys(getRandomString(5));
 
-        driver.findElement(By.id("Ecom_Payment_Card_Number")).sendKeys("4242424242424242");
-        //driver.findElement(By.id("Ecom_Payment_Card_Number")).sendKeys("5"+getRandomNumber((15)));
+        driver.findElement(By.id("Ecom_Payment_Card_Number")).sendKeys(getRandomNumber((16)));
 
-        //driver.findElement(By.id("Ecom_Payment_Card_ExpDate_Month")).sendKeys(getRandomString(1));
         Select dropDown = new Select(driver.findElement(By.id("Ecom_Payment_Card_ExpDate_Month")));
-        dropDown.selectByVisibleText("01");
+        dropDown.selectByIndex(4);
 
-        //driver.findElement(By.id("Ecom_Payment_Card_ExpDate_Year")).sendKeys(getRandomString(4));
         Select dropDown2 = new Select(driver.findElement(By.id("Ecom_Payment_Card_ExpDate_Year")));
-        dropDown2.selectByVisibleText("2020");
+        dropDown2.selectByIndex(3);
 
         driver.findElement(By.id("Ecom_Payment_Card_Verification")).sendKeys(getRandomNumber(3));
+
         driver.findElement(By.id("submit3")).click();
     }
 
 
     public void expectTotalChargeContol() throws Exception {
         totalCharge = driver.findElement(By.xpath("//*[@id=\"ncol_ref\"]/tbody/tr[2]/td[2]/small")).getText();
-        if (totalCharge.contains("1.00")){
+        if (totalCharge.contains("1.00")) {
             logger.info("1.00 total charge exist");
         } else {
             logger.info("1.00 total charge is not exist");
@@ -125,7 +123,7 @@ public class BeinSportProject {
     public void comparePrice() {
         lastTakenPrice = driver.findElement(By.xpath("//div[@class='row subscription-item']//div[@class='subscription-package open'][2]//span[@class='price fz-14 fw-bold text-center']")).getAttribute("innerHTML");
 
-        if(lastTakenPrice.equals(priceBeforeClick)){
+        if (lastTakenPrice.equals(priceBeforeClick)) {
             logger.info("Same Price");
         } else {
             logger.info("Different Prices");
@@ -166,14 +164,12 @@ public class BeinSportProject {
 
         driver = new ChromeDriver();
 
-        // tum elementler icin maksimum 15 bekleyeck
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.manage().window().maximize();
     }
 
 
     public String generateRandomEmail() {
-
         return getRandomString(10) + "@" + getRandomString(5) + ".com";
     }
 
@@ -182,7 +178,7 @@ public class BeinSportProject {
         String randomSumberString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
         StringBuilder salt = new StringBuilder();
         Random rnd = new Random();
-        while (salt.length() < randomStringSize) { // length of the random string.
+        while (salt.length() < randomStringSize) {
             int index = (int) (rnd.nextFloat() * randomSumberString.length());
             salt.append(randomSumberString.charAt(index));
         }
@@ -194,13 +190,12 @@ public class BeinSportProject {
         String randomNumbers = "123456789";
         StringBuilder salt = new StringBuilder();
         Random rnd = new Random();
-        while (salt.length() < randomStringSize) { // length of the random string.
+        while (salt.length() < randomStringSize) {
             int index = (int) (rnd.nextFloat() * randomNumbers.length());
             salt.append(randomNumbers.charAt(index));
         }
         return salt.toString();
     }
-
 
 
     public WebDriver getDriver() {
