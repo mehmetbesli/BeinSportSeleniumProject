@@ -44,7 +44,7 @@ public class BeinSportProject {
         expectErrorTestAndFinish();
         closeBrowser();
     }
-    // close browser
+
     public void closeBrowser() {
         try {
             driver.close();
@@ -54,7 +54,7 @@ public class BeinSportProject {
         }
     }
 
-    // control error mesaj to get or not
+
     public void expectErrorTestAndFinish() throws Exception {
         errorMessage = driver.findElement(By.xpath("//td[@class='ncoltxtc']")).getText();
         if (errorMessage!=null && errorMessage.length()>0){
@@ -65,7 +65,7 @@ public class BeinSportProject {
         }
     }
 
-    // write credit card details
+
     public void writeCardDetails() {
         driver.findElement(By.id("Ecom_Payment_Card_Name")).sendKeys(getRandomString(5));
 
@@ -84,7 +84,7 @@ public class BeinSportProject {
         driver.findElement(By.id("submit3")).click();
     }
 
-    // checks whether it is on the desired page
+
     public void expectTotalChargeContol() throws Exception {
         totalCharge = driver.findElement(By.xpath("//*[@id=\"ncol_ref\"]/tbody/tr[2]/td[2]/small")).getText();
         if (totalCharge.contains("1.00")){
@@ -94,19 +94,19 @@ public class BeinSportProject {
         }
     }
 
-    // accept condition and click 'pay now' button to enter card details
+
     public void makePaymentWıthCard() {
         driver.findElement(By.xpath("//div[@class='custom-checkbox']")).click();
         driverWait = new WebDriverWait(driver, 10);
         driverWait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='form-group position-r show']/input[@class='bc-subscribe border-none show']"))).click();
     }
 
-    // Ignore email verification alert by clicking 'X'
+
     public void IgnoreEmailVerification() {
         driver.findElement(By.id("close")).click();
     }
 
-    // Fill Create Account form with a random email
+
     public void createAccount() {
         driver.findElement(By.name("FirstName")).sendKeys(getRandomString(5));
         driver.findElement(By.name("LastName")).sendKeys(getRandomString(5));
@@ -116,12 +116,12 @@ public class BeinSportProject {
         driver.findElement(By.xpath("//input[@class='border-none bc-subscribe']")).click();
     }
 
-    // click the 'Subscribe' button
+
     public void MonthlyPasswithOneWeek() {
         driver.findElement(By.xpath("//div[@class='row subscription-item']//div[@class='subscription-package open'][2]//a[@class='btn-type-1 mt-20-plus add-card']")).click();
     }
 
-    //Compare two prices to see that prices are same
+
     public void comparePrice() {
         lastTakenPrice = driver.findElement(By.xpath("//div[@class='row subscription-item']//div[@class='subscription-package open'][2]//span[@class='price fz-14 fw-bold text-center']")).getAttribute("innerHTML");
 
@@ -132,23 +132,23 @@ public class BeinSportProject {
         }
     }
 
-    // Click 'One Month' button
+
     public void goToOneMonth() {
         driver.findElement(By.xpath("//div[@class='container-onboarding step1']/div[3]")).click();
     }
 
-    //get price to check
+
     public void getCorrectPrice() {
         priceBeforeClick = driver.findElement(By.xpath("//div[@class='container-onboarding step1']//div[@class='row subscription-package package-group open clearfix'][3]//span[@class='subscription-price-item price fz-14 fw-bold']")).getAttribute("innerHTML");
     }
 
-    //Click 'Subscribe' button near Login in web page
+
     public void SubscribeButton() {
         driver.findElement(By.xpath("//li[@class='subscribe']/a")).click();
 
     }
 
-    // Opening 'https://connect-th.beinsports.com/en' Url
+
     public void navigateToWebsite() throws Exception {
         driver.get("https://connect-th.beinsports.com/en");
         if (driver.getCurrentUrl().contains("https://connect-th.beinsports.com/en")) {
@@ -158,7 +158,7 @@ public class BeinSportProject {
         }
     }
 
-    //Opening Chrome Browser
+
     public void openChromeBrowser() {
         String path = System.getProperty("user.dir");
         System.out.println("Proje path : " + path);
@@ -171,13 +171,13 @@ public class BeinSportProject {
         driver.manage().window().maximize();
     }
 
-    // Generateing random mail
+
     public String generateRandomEmail() {
 
         return getRandomString(10) + "@" + getRandomString(5) + ".com";
     }
 
-    // Generateing random mixed String and number
+
     public String getRandomString(int randomStringSize) {
         String randomSumberString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
         StringBuilder salt = new StringBuilder();
@@ -189,7 +189,7 @@ public class BeinSportProject {
         return salt.toString();
     }
 
-    // Generateing random number
+
     private String getRandomNumber(int randomStringSize) {
         String randomNumbers = "123456789";
         StringBuilder salt = new StringBuilder();

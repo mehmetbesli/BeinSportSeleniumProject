@@ -28,7 +28,7 @@ public class BeinSportProjectTestCase {
     @Test
     public void gotoBeinSportWebPageTest() throws Exception {
         project.navigateToWebsite();
-        Assert.assertTrue("You are not in amazon web site", project.getDriver().getCurrentUrl().contains("https://connect-th.beinsports.com/en"));
+        Assert.assertTrue("You are in BeinSport web site", project.getDriver().getCurrentUrl().contains("https://connect-th.beinsports.com/en"));
     }
 
     @Test
@@ -88,7 +88,7 @@ public class BeinSportProjectTestCase {
         project.comparePrice();
         project.MonthlyPasswithOneWeek();
         project.createAccount();
-        Assert.assertTrue("You are not in amazon web site", project.getDriver().getCurrentUrl().contains("account/register"));
+        Assert.assertTrue("You are in create account part", project.getDriver().getCurrentUrl().contains("account/register"));
     }
 
     @Test
@@ -117,7 +117,7 @@ public class BeinSportProjectTestCase {
         project.IgnoreEmailVerification();
         project.makePaymentWıthCard();
         String textWritten = project.getDriver().findElement(By.xpath("//p[@class='payment-cards-description']")).getText();
-        Assert.assertTrue("We are in Make Payment With Car Pages", textWritten.contains("Pay with Credit/Debit Card"));
+        Assert.assertTrue("We are in Make Payment With Card Pages", textWritten.contains("Pay with Credit/Debit Card"));
         //Assert.assertTrue("We are in Make Payment With Car Pages", textWritten.equalsIgnoreCase("Pay with Credit/Debit Card"));
     }
 
